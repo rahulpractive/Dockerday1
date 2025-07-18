@@ -1,0 +1,14 @@
+---
+# document should start with ---
+services:
+  hello:
+    build: .
+    read_only: true
+    # read_only filesystem
+    restart: "no"
+    security_opt:
+      - no-new-privileges:true
+    # this - no-new-privileges:true  -->give issues on indentation 2 spaces from security_opt  
+    # extra protection from privilege escalation
+    tmpfs:
+      - /tmp  # safe temp space in memory

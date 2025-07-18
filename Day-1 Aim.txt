@@ -1,0 +1,167 @@
+Execute to Build and run
+--------------------------
+docker compose build
+docker compose up
+--------------------
+
+
+
+
+Interation 1: Hadolint Dockerfile
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>hadolint Dockerfile
+Dockerfile:2 DL3007 warning: Using latest is prone to errors if the image
+will ever update. Pin the version explicitly to a release tag
+
+Before
+FROM alpine:latest
+
+After alpine:3.21.3
+
+Safe --
+
+Interation 2: Scanning yamllint docker-compose.yamllint
+
+Microsoft Windows [Version 10.0.26100.3476]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  1:5       warning  too few spaces before comment  (comments)
+  4:7       error    wrong indentation: expected 4 but found 6  (indentation)
+  5:23      warning  too few spaces before comment  (comments)
+  7:20      error    trailing spaces  (trailing-spaces)
+  8:7       error    wrong indentation: expected 8 but found 6  (indentation)
+  8:32      warning  too few spaces before comment  (comments)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  1:4       error    trailing spaces  (trailing-spaces)
+  5:7       error    wrong indentation: expected 4 but found 6  (indentation)
+  6:23      warning  too few spaces before comment  (comments)
+  8:20      error    trailing spaces  (trailing-spaces)
+  9:7       error    wrong indentation: expected 8 but found 6  (indentation)
+  9:32      warning  too few spaces before comment  (comments)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  5:7       error    wrong indentation: expected 4 but found 6  (indentation)
+  6:23      warning  too few spaces before comment  (comments)
+  8:20      error    trailing spaces  (trailing-spaces)
+  9:7       error    wrong indentation: expected 8 but found 6  (indentation)
+  9:32      warning  too few spaces before comment  (comments)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  6:21      warning  too few spaces before comment  (comments)
+  8:18      error    trailing spaces  (trailing-spaces)
+  9:5       error    wrong indentation: expected 6 but found 4  (indentation)
+  9:30      warning  too few spaces before comment  (comments)
+  11:5      error    wrong indentation: expected 6 but found 4  (indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  6:20      error    trailing spaces  (trailing-spaces)
+  9:18      error    trailing spaces  (trailing-spaces)
+  10:5      error    wrong indentation: expected 6 but found 4  (indentation)
+  10:30     warning  too few spaces before comment  (comments)
+  12:5      error    wrong indentation: expected 6 but found 4  (indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  9:18      error    trailing spaces  (trailing-spaces)
+  10:5      error    wrong indentation: expected 6 but found 4  (indentation)
+  10:30     warning  too few spaces before comment  (comments)
+  12:5      error    wrong indentation: expected 6 but found 4  (indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  10:5      error    wrong indentation: expected 6 but found 4  (indentation)
+  10:30     warning  too few spaces before comment  (comments)
+  12:5      error    wrong indentation: expected 6 but found 4  (indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  10:9      error    wrong indentation: expected 6 but found 8  (indentation)
+  10:34     warning  too few spaces before comment  (comments)
+  12:5      error    wrong indentation: expected 6 but found 4  (indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  10:5      error    wrong indentation: expected 6 but found 4  (indentation)
+  10:30     warning  too few spaces before comment  (comments)
+  12:5      error    wrong indentation: expected 6 but found 4  (indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  10:5      error    wrong indentation: expected 6 but found 4  (indentation)
+  13:5      error    wrong indentation: expected 6 but found 4  (indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  14:5      warning  comment not indented like content  (comments-indentation)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+docker-compose.yml
+  13:14     warning  too few spaces before comment  (comments)
+
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>           
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>hadolint Dockerfile
+Dockerfile:2 DL3007 warning: Using latest is prone to errors if the image will ever update. Pin the version explicitly to a release tag
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>
+
+
+Hadolint confirm --
+
+FROM alpine:latest --> give future issues so modified to
+FROM alpine:3.21.3
+ 
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>docker compose build
+Compose now can delegate build to bake for better performances
+Just set COMPOSE_BAKE=true
+[+] Building 1.9s (10/10) FINISHED                                                                                                     docker:desktop-linux
+ => [hello internal] load build definition from Dockerfile                                                                                             0.0s 
+ => => transferring dockerfile: 430B                                                                                                                   0.0s
+ => [hello internal] load metadata for docker.io/library/alpine:3.21.3                                                                                 1.5s 
+ => [hello internal] load .dockerignore                                                                                                                0.0s
+ => => transferring context: 2B                                                                                                                        0.0s 
+ => [hello 1/4] FROM docker.io/library/alpine:3.21.3@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c                           0.0s 
+ => => resolve docker.io/library/alpine:3.21.3@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c                                 0.0s 
+ => [hello internal] load build context                                                                                                                0.0s 
+ => => transferring context: 56B                                                                                                                       0.0s 
+ => CACHED [hello 2/4] RUN addgroup -S addgroup     && adduser -S adduser -G addgroup                                                                  0.0s 
+ => CACHED [hello 3/4] COPY app/hello.sh /app/hello.sh                                                                                                 0.0s
+ => CACHED [hello 4/4] RUN chmod +x /app/hello.sh                                                                                                      0.0s 
+ => [hello] exporting to image                                                                                                                         0.1s 
+ => => exporting layers                                                                                                                                0.0s 
+ => => exporting manifest sha256:07e185c99c80234960e53a0613d425b8d7a495ad8d1b5b16c48b11eca95a4f68                                                      0.0s 
+ => => exporting config sha256:11ca4a163ec3e00ce58e0cb7e10a69c364a9e6a810a83066861f8d863611ad52                                                        0.0s 
+ => => exporting attestation manifest sha256:b3d017b5ede78c5202626d10049ad4b0e4a3fb641dfb57a71514465ad914c6b4                                          0.0s 
+ => => exporting manifest list sha256:125f41097eef24de5e78b7406d26d157115386fe58eaf11488047c2192ae5c91                                                 0.0s 
+ => => naming to docker.io/library/day1-hello:latest                                                                                                   0.0s 
+ => => unpacking to docker.io/library/day1-hello:latest                                                                                                0.0s 
+ => [hello] resolving provenance for metadata file                                                                                                     0.0s 
+[+] Building 1/1
+ ✔ hello  Built                                                                                                                                        0.0s 
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>hadolint Dockerfile
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>yamllint docker-compose.yml
+
+C:\Drive_D\Learning_Docker\DockerComposeDaily\Day1>
